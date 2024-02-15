@@ -7,13 +7,14 @@ const app= express();
 
 app.get("/",function(req,res){
      var today=new Date();
-     if(today.getDate()===6 || today.getDate()===0){
-        res.send("its a weekend");
+     var currentDay=today.getDay();
+     if(currentDay===6 || currentDay===0){
+        res.send("Its a weekend");     
      }
      else{
         res.send("A weekday")
      }
-})
+}); 
 
 
 
