@@ -2,17 +2,20 @@ const express=require("express");
 const bodyParser=require("body-parser")
 
 
-const app= express();
+
+const app= express(); 
+
+app.use("view engine","ejs");
 
 
 app.get("/",function(req,res){
      var today=new Date();
      var currentDay=today.getDay();
      if(currentDay===6 || currentDay===0){
-        res.send("Its a weekend");     
+        res.sendFile(__dirname + "/index.html");     
      }
      else{
-        res.send("A weekday")
+        res.sendFile(__dirname + "/index.html")
      }
 }); 
 
